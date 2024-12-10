@@ -22,4 +22,5 @@ Route::middleware('auth')->group(function () {
 Route::resource('clientes', ClienteController::class);
 Route::resource('libros', LibroController::class);
 
+
 require __DIR__.'/auth.php';

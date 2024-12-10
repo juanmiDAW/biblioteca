@@ -11,4 +11,8 @@ class Cliente extends Model
     use HasFactory;
 
     protected $fillable = ['nombre'];
+
+    public function ejemplares(){
+        return $this->belongsToMany(Ejemplar::class, 'prestamos')->withPivot('fecha_hora', 'fecha_hora_devolucion');
+    }
 }

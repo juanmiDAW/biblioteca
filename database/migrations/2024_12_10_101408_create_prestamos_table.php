@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ejemplares', function (Blueprint $table) {
+        Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo');
+            $table->foreignId('ejemplar_id')->constrained('ejemplares');
+            $table->foreignId('clientes_id')->constrained();
+            $table->timestamp('fecha_hora');
+            $table->timestamp('fecha_hora_devolucion')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ejemplares');
+        Schema::dropIfExists('prestamos');
     }
 };
