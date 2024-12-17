@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('ejemplares', function (Blueprint $table) {
             $table->id();
-            $table->integer('codigo');
+            $table->foreignId('libro_id')->constrained();
             $table->timestamps();
         });
     }
@@ -24,5 +24,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('ejemplares');
+
     }
 };

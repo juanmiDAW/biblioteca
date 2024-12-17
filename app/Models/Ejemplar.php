@@ -11,8 +11,11 @@ class Ejemplar extends Model
     /** @use HasFactory<\Database\Factories\EjemplarFactory> */
     use HasFactory;
 
+    protected $table = 'ejemplares';
+
+
     public function libros(){
-        return $this->hasMany(Ejemplar::class);
+        return $this->belongsTo(Ejemplar::class);
     }
 
     public function clientes(){

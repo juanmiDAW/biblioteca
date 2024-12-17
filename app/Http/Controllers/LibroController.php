@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ejemplar;
 use App\Models\Libro;
 use Illuminate\Http\Request;
 
@@ -40,9 +41,9 @@ class LibroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Libro $libro)
+    public function show(Libro $libro, Ejemplar $ejemplar)
     {
-        return view('libros.show', ['libro'=>$libro]);
+        return view('libros.show', ['libro'=>$libro,'ejemplar'=>$ejemplar]);
     }
 
     /**

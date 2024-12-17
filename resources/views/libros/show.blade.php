@@ -10,12 +10,20 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                        <div class="flex flex-col py-3">
+                            <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+                                ID del libro
+                            </dt>
+                            <dd class="text-lg font-semibold">
+                                {{ $libro->id }}
+                            </dd>
+                        </div>
                         <div class="flex flex-col pb-3">
                             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
                                 Titulo
                             </dt>
                             <dd class="text-lg font-semibold">
-                                {{ $libro->titulo}}
+                                {{ $libro->titulo }}
                             </dd>
                         </div>
                         <div class="flex flex-col py-3">
@@ -23,22 +31,21 @@
                                 Autor
                             </dt>
                             <dd class="text-lg font-semibold">
-                                {{ $libro->autor}}
+                                {{ $libro->autor }}
                             </dd>
                         </div>
                         <div class="flex flex-col py-3">
-                            <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                Ejemplares_id
-                            </dt>
-                            <dd class="text-lg font-semibold">
-                                {{ $libro->id}}
-                            </dd>
-                            <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
-                                Estado prestamo
-                            </dt>
-                            <dd class="text-lg font-semibold">
-                                {{ $libro->Prestamos->fecha_hora}}
-                            </dd>
+                            <a href="{{route('ejemplares.index',['id'=>$libro->id])}}">
+
+                                <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">
+                                    ID del ejemplar
+                                </dt>
+                                <dd class="text-lg font-semibold">
+                                    @foreach ($libro->ejemplares as $libros)
+                                    {{ $libros->id }},
+                                    @endforeach
+                                </dd>
+                            </a>
                         </div>
                     </dl>
                 </div>

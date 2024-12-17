@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EjemplarController;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Ejemplar;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,6 +23,8 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('clientes', ClienteController::class);
 Route::resource('libros', LibroController::class);
+Route::resource('ejemplares', EjemplarController::class);
 
 
+Route::get('/ejemplares/index/{id}', [EjemplarController::class, 'index'])->name('ejemplares.index');
 require __DIR__.'/auth.php';

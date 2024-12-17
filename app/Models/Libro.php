@@ -13,6 +13,6 @@ class Libro extends Model
     protected $fillable = ['titulo', 'autor'];
 
     public function ejemplares(){
-        return $this->belongsTo(Ejemplar::class);
+        return $this->hasMany(Ejemplar::class);
     }
 }

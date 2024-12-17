@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ejemplar;
+use App\Models\Libro;
 use Illuminate\Http\Request;
 
 class EjemplarController extends Controller
@@ -10,9 +11,11 @@ class EjemplarController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $libro = Libro::findOrFail($id);
+        $ejemplares = $libro->ejemplares;
+        return view('ejemplares.index',compact('ejemplares', 'libro'));
     }
 
     /**

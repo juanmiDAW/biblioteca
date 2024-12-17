@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ejemplar_id')->constrained('ejemplares');
-            $table->foreignId('clientes_id')->constrained();
+            $table->foreignId('cliente_id')->constrained('clientes');
             $table->timestamp('fecha_hora');
             $table->timestamp('fecha_hora_devolucion')->nullable();
             $table->timestamps();
