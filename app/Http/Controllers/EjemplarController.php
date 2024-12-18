@@ -13,7 +13,7 @@ class EjemplarController extends Controller
      */
     public function index($id)
     {
-        $libro = Libro::findOrFail($id);
+        $libro = Libro::with('ejemplares.clientes')->findOrFail($id);
         $ejemplares = $libro->ejemplares;
         return view('ejemplares.index',compact('ejemplares', 'libro'));
     }

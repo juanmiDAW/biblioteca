@@ -49,12 +49,23 @@
                                         <td class="px-6 py-4">
                                             {{ $libro->autor }}
                                         </td>
+                                        <td class="px-6 py-4">
+                                            @foreach ($ejemplar->clientes as $cliente)
+                                                <!-- Acceder a la fecha de devolución desde el pivot -->
+                                                @if ($cliente->pivot->fecha_hora_devolucion)
+                                                    {{ $cliente->pivot->fecha_hora_devolucion }},
+                                                    Disponible
+                                                @else
+                                                    No devuelto
+                                                @endif
+                                            @endforeach
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                   
+
 
                 </div>
             </div>
